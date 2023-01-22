@@ -26,7 +26,8 @@ spec:
           imagePullPolicy: Always
           env:
             - name: DATABASE_URL
-              value: "postgresql://postgres:postgres@postgres/macedonian_sentiment"
+              #value: "postgresql://postgres:postgres@postgres/macedonian_sentiment"
+              value: "postgresql://postgres:postgres@localhost/macedonian_sentiment"
           ports:
             - containerPort: 5000
               protocol: TCP
