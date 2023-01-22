@@ -61,5 +61,5 @@ spec:
                 name: mk-sentiment-fastapi-service
                 port:
                   number: 5000
-            path: /api/
-            pathType: Prefix
+            path: /api
+           # pathType: Prefix
