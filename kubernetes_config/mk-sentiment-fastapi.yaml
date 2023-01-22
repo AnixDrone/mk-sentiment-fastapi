@@ -42,24 +42,24 @@ spec:
     - port: 5000
   selector:
     app: mk-sentiment-fastapi
----
-apiVersion: networking.k8s.io/v1
-kind: Ingress
-metadata:
-  name: mk-sentiment-fastapi-ingress
-  namespace: mk-sentiment-fastapi-ns
-  annotations:
-    kubernetes.io/ingress.class: nginx
-    nginx.ingress.kubernetes.io/ssl-redirect: "false"
+# ---
+# apiVersion: networking.k8s.io/v1
+# kind: Ingress
+# metadata:
+#   name: mk-sentiment-fastapi-ingress
+#   namespace: mk-sentiment-fastapi-ns
+#   annotations:
+#     kubernetes.io/ingress.class: nginx
+#     nginx.ingress.kubernetes.io/ssl-redirect: "false"
 
-spec:
-  rules:
-    - http:
-        paths:
-          - backend:
-              service:
-                name: mk-sentiment-fastapi-service
-                port:
-                  number: 5000
-            path: /api
-            pathType: Prefix
+# spec:
+#   rules:
+#     - http:
+#         paths:
+#           - backend:
+#               service:
+#                 name: mk-sentiment-fastapi-service
+#                 port:
+#                   number: 5000
+#             path: /api
+#             pathType: Prefix
