@@ -22,7 +22,7 @@ spec:
     spec:
       containers:
         - name: mk-sentiment-fastapi
-          image: anixdrone/mk-sentiment-fastapi
+          image: anixdrone/mk-sentiment-fastapi:latest
           imagePullPolicy: Always
           env:
             - name: DATABASE_URL
@@ -61,5 +61,5 @@ spec:
                 name: mk-sentiment-fastapi-service
                 port:
                   number: 5000
-            path: /api
+            path: /api/
             pathType: Prefix
