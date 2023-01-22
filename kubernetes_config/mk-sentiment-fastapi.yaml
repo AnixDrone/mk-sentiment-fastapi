@@ -22,7 +22,7 @@ spec:
     spec:
       containers:
         - name: mk-sentiment-fastapi
-          image: anixdrone/mk-sentiment-fastapi:latest
+          image: anixdrone/mk-sentiment-fastapi
           imagePullPolicy: Always
           env:
             - name: DATABASE_URL
