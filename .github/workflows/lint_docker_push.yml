@@ -24,11 +24,21 @@ jobs:
       - name: Lint Code Base
         uses: github/super-linter@v4
         env:
+          VALIDATE_YAML: false
           VALIDATE_ALL_CODEBASE: false
           DEFAULT_BRANCH: master
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  validate_yaml:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Kubernetes yaml validation by kubeval
+        uses: makocchi-git/actions-k8s-manifests-validate-kubeval@v1.0.1
+        with:
+          files: kubernetes_config/mk-sentiment-streamlit.yaml
+          token: ${{ secrets.GITHUB_TOKEN }}
   docker:
-    needs: run-lint
+    needs: [run-lint, validate_yaml]
     runs-on: ubuntu-latest
     steps:
       -
@@ -49,7 +59,6 @@ jobs:
         with:
           push: true
           tags: anixdrone/mk-sentiment-fastapi:latest
-
 
           
 
